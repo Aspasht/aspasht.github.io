@@ -1,69 +1,61 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import url('https://fonts.googleapis.com/css2?family=Arapey&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rokkitt:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?Arapey&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Babylonica&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Carattere&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
+@layer utilities {
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
+    .underline-elem {
+        @apply inline-block relative after:h-1 after:w-full after:bg-green-500 after:bottom-0 after:left-0 after:scale-x-0 after:origin-bottom-right
+    }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
+    .underline-animation {
+        @apply after:absolute after:h-1 after:bg-green-500 after:w-full after:scale-x-100 after:transform after:origin-center after:transition after:duration-1000 after:ease-in
+    }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+    .slide-from-left {
+        @apply transform transition -translate-x-1 ease-in-out duration-300 
+    }
+
+    .btn {
+        @apply inline-block px-5 py-1 rounded-lg hover:shadow-xl hover:-translate-y-0.5 transform transition font-bold focus:scale-95
+    }
+
+    .btn-primary {
+        @apply  bg-blue-500 font-serif border hover:bg-blue-800
+    }
+
+    .btn-secondary {
+        @apply inline-block font-serif border hover:bg-blue-800
+    }
+
+    .title {
+        @apply text-[36px] md:text-[48px] text-red-500 font-serif prose font-extrabold
+    }
+
+    .subtitle-large {
+        @apply text-2xl font-serif prose font-bold
+    }
+
+    .subtitle-small {
+        @apply text-xl font-serif prose font-bold
+    }
+
+    .para-text {
+        @apply prose prose-sm md:prose-lg max-w-none text-slate-400 antialiased tracking-tight md:tracking-normal leading-tight
+    }
+    
+    .sidebar-style {
+
+        @apply prose text-sm px-2 my-3 underline text-blue-300 truncate
+    }   
+
 }
