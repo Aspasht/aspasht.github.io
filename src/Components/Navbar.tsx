@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import GithubLogo from "../assets/github-mark-white.png";
-import AspashtLogo from "../assets/logo.png";
+
 
 const Navbar = () => {
   return (
@@ -19,7 +19,7 @@ const Navbar = () => {
           </div>
           <div className="">
             <button className="">
-              <img className="w-8 h-8 animate-pulse" src={GithubLogo}></img>
+              <a href='https://github.com/Aspasht'><img className="w-8 h-full rounded-full animate-pulse" src={GithubLogo}></img></a> 
             </button>
           </div>
         </div>

@@ -79,7 +79,7 @@ const Home = () => {
 
   return (
     <Layout>
-      <div className="relaive">
+      <div className="relative">
         <span className="flex w-full">
           <animated.div
             className="mx-auto self-center font-rootkit text-[50px] font-bold text-red-900 text-center"
