@@ -1,0 +1,41 @@
+{
+    "editor.formatOnSave": false,
+    "editor.formatOnSaveMode": "modifications",
+    "css.format.enable": false,
+    "css.hover.references": false,
+    "editor.fontSize": 12,
+    "editor.fontFamily": "'Cascadia Code'",
+    "editor.fontLigatures": "'ss02'",
+    "editor.tokenColorCustomizations": {
+      "textMateRules": [
+        {
+          "scope": [
+            // "comment",
+            // "keyword",
+            "variable.language",
+            "entity.name.function",
+            
+          ],
+          "settings": {
+            "fontStyle": "italic bold"
+          }
+        },
+        {
+          "scope": [
+            "variable.other.constant"
+          ],
+          "settings": {
+            "foreground": "#a93fc6"
+          }
+        },
+        {
+          "scope": [
+            "comment"
+          ],
+          "settings": {
+            "foreground": "#1b5b1b"
+          }
+        }
+      ]
+    }
+}
