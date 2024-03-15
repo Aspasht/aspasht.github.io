@@ -3,6 +3,10 @@ import { animated, useInView, useSpring } from "@react-spring/web";
 import { useState, useEffect } from "react";
 import Markdown from "./Markdown.tsx";
 import Cli from "./Cli.tsx";
+import { Contact } from "./Contact.tsx";
+import AspashtLogo from "../assets/logo.png";
+
+
 
 const Home = () => {
   const [isInView, setIsInView] = useState(false);
@@ -75,13 +79,14 @@ const Home = () => {
 
   return (
     <Layout>
-      <div className="">
+      <div className="relaive">
         <span className="flex w-full">
           <animated.div
-            className="mx-auto self-center font-rootkit text-[50px] font-bold text-red-900"
+            className="mx-auto self-center font-rootkit text-[50px] font-bold text-red-900 text-center"
             ref={ref}
             style={props}
           >
+            <img className="w-36 h-full -mt-[50px]" src={AspashtLogo} alt="aspasht-logo"></img>
             NAMASTE
           </animated.div>
         </span>
@@ -94,7 +99,6 @@ const Home = () => {
         <span>
           <Cli />
         </span>
-
         <div className="">
           <div className="p-5 text-green-700">
             <Markdown markdown={pythonMarkdown}></Markdown>
@@ -103,6 +107,9 @@ const Home = () => {
 
         <div className="p-5 text-green-700">
           <Markdown markdown={javascriptMarkdown}></Markdown>
+        </div>
+        <div className="sticky bottom-0 mx-2">
+        <Contact />
         </div>
       </div>
     </Layout>
