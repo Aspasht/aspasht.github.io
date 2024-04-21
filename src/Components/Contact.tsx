@@ -1,4 +1,3 @@
-import { Popover } from '@headlessui/react'
 import { MailPopover } from './MailPopover';
 
 export const Contact = () => {

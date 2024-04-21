@@ -1,4 +1,3 @@
-import Layout from "./Layout";
 import LoadingPage from "./LoadingPage";
 
 const Research = () => {
