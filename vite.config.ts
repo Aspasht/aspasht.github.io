@@ -6,14 +6,14 @@ import { ViteDevServer } from 'vite';
 import { createServer } from 'http';
 
 
-const SERVER_URL = 'https://djangoapi-production-7681.up.railway.app';
+const SERVER_URL = 'https://django-api-824k.onrender.com/';
 
 export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
       "/api": {
-        target: "https://djangoapi-production-7681.up.railway.app",
+        target: "https://django-api-824k.onrender.com/",
         changeOrigin: true,
         secure: false,
         ws: true,
