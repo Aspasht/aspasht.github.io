@@ -1,9 +1,8 @@
-import Layout from './Layout'
+import Layout from "./Layout";
+import LoadingPage from "./LoadingPage";
 
 const Research = () => {
-  return (
-    <Layout>Research</Layout>
-  )
-}
+  return <LoadingPage />;
+};
 
-export default Research
+export default Research;

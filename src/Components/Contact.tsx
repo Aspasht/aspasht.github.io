@@ -1,8 +1,10 @@
+import { Popover } from '@headlessui/react'
+import { MailPopover } from './MailPopover';
 
 export const Contact = () => {
   return (
     <div>
-      <div className="absolute bottom-0 right-0 flex scale-100 gap-x-3 py-2 transition ease-linear fill-green-700">
+      <div className="absolute bottom-0 right-0 flex scale-100 gap-x-3 py-2 transition ease-linear">
         <a
           className="hover:scale-125 active:scale-95"
           id="twitter"
@@ -10,7 +12,7 @@ export const Contact = () => {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            fill="current"
+            fill="#15803d"
             width="36"
             height="36"
             viewBox="0 0 24 24"
@@ -18,28 +20,21 @@ export const Contact = () => {
             <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
           </svg>
         </a>
-        <a
+        {/* <button
           className="hover:scale-125 active:scale-95"
-          id="facebook"
-          href="https://facebook.com"
+          id="email"
+          onClick={}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="current"
-            width="36"
-            height="36"
-            viewBox="0 0 24 24"
-          >
-            <path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 10h-2v2h2v6h3v-6h1.82l.18-2h-2v-.833c0-.478.096-.667.558-.667h1.442v-2.5h-2.404c-1.798 0-2.596.792-2.596 2.308v1.692z" />
-          </svg>
-        </a>
+          
+        </button> */}
+        <MailPopover />
         <a
           className="hover:scale-125 active:scale-95"
           id="discord"
-          href="https://discord.com/channels/953960195074174987/953960196441526334"
+          href="https://discord.gg/pr8au7AW"
         >
           <svg
-            fill="current"
+            fill="#15803d"
             width="36"
             height="36"
             viewBox="0 0 24 24"
@@ -55,7 +50,7 @@ export const Contact = () => {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            fill="current"
+            fill="#15803d"
             width="36"
             height="36"
             viewBox="0 0 24 24"

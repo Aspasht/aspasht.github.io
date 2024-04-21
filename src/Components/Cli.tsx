@@ -40,15 +40,25 @@ const Cli = () => {
     setButtonPressed(true); 
   };
 
-  useEffect(() => {
-    let closeTimeout:any;
+  // useEffect(() => {
+  //   let closeTimeout:any;
   
-    if (!buttonPressed) {
+  //   if (!buttonPressed) {
      
-      closeTimeout = setTimeout(() => {
-        setShowCli(false);
-      }, 15000); 
-    }
+  //     closeTimeout = setTimeout(() => {
+  //       setShowCli(false);
+  //     }, 15000); 
+  //   }
+
+    useEffect(() => {
+      let closeTimeout:any;
+    
+      // if (!buttonPressed) {
+       
+      //   closeTimeout = setTimeout(() => {
+      //     setShowCli(false);
+      //   },); 
+      // }
   
     return () => {
       clearTimeout(closeTimeout);
