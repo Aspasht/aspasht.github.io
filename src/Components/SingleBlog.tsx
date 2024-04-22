@@ -28,14 +28,13 @@ const SingleBlog = () => {
     console.log(id);
 
     useEffect(() => {
-        const base_url = 'https://djangoapi-production-7681.up.railway.app'
         const findPost = async (post: PostType[]) => {
             const foundPost = post.find((obj: PostType) => obj.title === id);
             if (foundPost) {
                 setSinglePost(foundPost);
             } else {
                 try {
-                    const response = await axios.get(`${base_url}/api/${id}/`);
+                    const response = await axios.get(`/api/${id}/`);
                     setSinglePost(response.data);
                 } catch (error) {
                     console.log(error);

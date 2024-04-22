@@ -21,9 +21,8 @@ export const PostContextProvider: React.FC<{ children: React.ReactNode }> = ({ c
   }, []);
 
   const fetchBlogPosts = async () => {
-    const base_url = 'https://djangoapi-production-7681.up.railway.app'
     try {
-      const response = await axios.get(`${base_url}/api`);
+      const response = await axios.get('/posts');
       setPosts(response.data);
     } catch (error) {
       console.error(error);

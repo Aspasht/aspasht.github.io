@@ -1,37 +1,20 @@
-import { defineConfig, UserConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import { createProxyMiddleware } from 'http-proxy-middleware';
-import path from 'path';
-import { ViteDevServer } from 'vite';
-import { createServer } from 'http';
+import { defineConfig, UserConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import { createProxyMiddleware } from "http-proxy-middleware";
+import path from "path";
+import { ViteDevServer } from "vite";
+import { createServer } from "http";
 
-
-const SERVER_URL = 'https://django-api-824k.onrender.com/';
+const SERVER_URL = "https://aspashtapi.onrender.com/";
 
 export default defineConfig({
-  plugins: [react()],
   server: {
     proxy: {
-      "/api": {
-        target: "https://django-api-824k.onrender.com/",
-        changeOrigin: true,
-        secure: false,
-        ws: true,
-      },
+      "/api": `${SERVER_URL}`,
     },
   },
-})
-
-
-
-
-
-
-
-
-
-
-
+  plugins: [react()],
+});
 
 
 
