@@ -54,7 +54,7 @@ const Blogs = () => {
       {
         posts ? (
           <Layout>
-            <div className='flex flex-row w-full p-2'>
+            <div className='flex flex-row  p-2 mx-12'>
               <div className="h-auto z-30 w-full">
 
                 <div className="flex flex-col">
@@ -80,7 +80,7 @@ const Blogs = () => {
                             <p className='mx-8 text-sm prose'>{date(data.createdAt)}</p>
                           </div>
                           <div className='h-24 overflow-hidden'>
-                            <p className='prose max-w-none font-blogtitle my-2 overflow-hidden text-md text-slate-300'>{data.description}</p>
+                            <p className='prose max-w-none font-blogtitle my-2 overflow-hidden text-md text-slate-500'>{data.content}</p>
                           </div>
                           <div className='flex justify-between'>
                             <div className='text-yellow-500 justify-start hover:scale-95 active:scale-95'>

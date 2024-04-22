@@ -5,12 +5,12 @@ import path from "path";
 import { ViteDevServer } from "vite";
 import { createServer } from "http";
 
-const SERVER_URL = "https://aspashtapi.onrender.com/";
+const SERVER_URL = "https://aspashtapi.onrender.com";
 
 export default defineConfig({
   server: {
     proxy: {
-      "/api": `${SERVER_URL}`,
+      "/api": 'https://aspashtapi.onrender.com',
     },
   },
   plugins: [react()],

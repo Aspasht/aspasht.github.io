@@ -34,7 +34,7 @@ const SingleBlog = () => {
                 setSinglePost(foundPost);
             } else {
                 try {
-                    const response = await axios.get(`/api/${id}/`);
+                    const response = await axios.get(`/api/posts/${id}/`);
                     setSinglePost(response.data);
                 } catch (error) {
                     console.log(error);
@@ -47,11 +47,11 @@ const SingleBlog = () => {
     return (
         <Layout>
             {singlePost ?
-                (<div className='text-white px-5'>
+                (<div className='text-white px-5 mx-12'>
                     <div className=''>
-                        <p className='text-[30px] font-bold overflow-auto text-left'>{singlePost.title}</p>
+                        <p className='text-[30px] font-bold overflow-auto text-left text-green-900'>{singlePost.title}</p>
                     </div>
-                    <div className='my-4 space-y-3 w-full text-[15px]'>
+                    <div className='my-4 space-y-3 w-full text-[15px] text-gray-500 '>
                         <ReactMarkdown  
                             children={singlePost.content}
                             remarkPlugins={[remarkGfm]}

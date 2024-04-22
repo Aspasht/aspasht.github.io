@@ -21,8 +21,9 @@ export const PostContextProvider: React.FC<{ children: React.ReactNode }> = ({ c
   }, []);
 
   const fetchBlogPosts = async () => {
+    const BASE_URL = 'https://aspashtapi.onrender.com'
     try {
-      const response = await axios.get('/posts');
+      const response = await axios.get(`${BASE_URL}/posts`);
       setPosts(response.data);
     } catch (error) {
       console.error(error);
