@@ -7,9 +7,10 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "dev": "vite",
-    "build": "tsc && vite build",
+    "build":"tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "docs:dev": "vitepress dev --host 0.0.0.0",
+    "docs:build": "vitepress build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -44,6 +45,12 @@
     "postcss": "^8.4.23",
     "tailwindcss": "^3.3.2",
     "typescript": "^5.0.2",
-    "vite": "^4.3.2"
+    "vite": "^4.3.2",
+    "vitepress": "^1.6.4",
+    "globby": "^14.1.0",
+    "gray-matter": "^4.0.3",
+    "fs-extra": "^11.3.2",
+    "vitepress-plugin-comment-with-giscus": "^1.1.15"
+
   }
 }
