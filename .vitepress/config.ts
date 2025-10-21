@@ -1,27 +1,29 @@
 import { defineConfig } from 'vitepress'
 import { getPosts } from './theme/serverUtils'
-import path from "node:path";
+
 
 //每页的文章数量
 const pageSize = 10
 
-const isProd = process.env.NODE_ENV === 'production'
+// const isProd = process.env.NODE_ENV === 'production'
+
+const isProd = true
 
 export default defineConfig({
-    title: "Aspasht's blog",
-    base: '/blog',
+    title: 'Aspasht',
+    base: '/',
     cacheDir: './node_modules/vitepress_cache',
-    description: 'vitepress,blog,blog-theme',
+    description: 'aspasht,blog,blog-theme',
     ignoreDeadLinks: true,
     themeConfig: {
         posts: await getPosts(pageSize),
-        website: 'https://github.com/aspasht/aspasht.github.io/', //copyright link
+        website: 'https://github.com/airene/vitepress-blog-pure', //copyright link
         // 评论的仓库地址 https://giscus.app/ 请按照这个官方初始化后覆盖
-        comment: {
-            repo: 'airene/vitepress-blog-pure',
-            repoId: 'MDEwOlJlcG9zaXRvcnkzODIyMjY5Nzg',
-            categoryId: 'DIC_kwDOFshSIs4CpZga'
-        },
+        // comment: {
+        //     repo: 'airene/vitepress-blog-pure',
+        //     repoId: 'MDEwOlJlcG9zaXRvcnkzODIyMjY5Nzg',
+        //     categoryId: 'DIC_kwDOFshSIs4CpZga'
+        // },
         nav: [
             { text: 'Home', link: '/' },
             { text: 'Category', link: '/pages/category' },
@@ -35,23 +37,20 @@ export default defineConfig({
         },
         //outline:[2,3],
         outline: {
-            label: '文章摘要'
+            label: 'summary'
         },
         socialLinks: [{ icon: 'github', link: 'https://github.com/aspasht' }]
     } as any,
 
     srcExclude: isProd
         ? [
-              '**/trash/**/*.md', // 排除所有 trash 目录
-              '**/draft/**/*.md', // 递归排除子目录
-              '**/private-notes/*.md', // 排除特定文件
+              '**/trash/**/*.md', 
+              '**/draft/**/*.md', 
+              '**/private-notes/*.md',
               'README.md'
           ]
         : ['README.md'],
     vite: {
-        build: {
-        outDir: path.resolve(__dirname, '../dist/blog'), // 👈 output blog under React dist
-        },
         //build: { minify: false }
         server: { port: 5000 }
     }

@@ -1,95 +1,176 @@
 ---
-date: 2021-06-05
-title: 一直想找一个系统架构和设计都足够干净的系统
-category: 主题
+title: Algorithms
+description: How to use FRIDA to bruteforce Secure Startup with FDE-encryption on a Samsung G935F running Android 
+date: 2025-04-28 00:01
 tags:
-- vitepress
-- markdown
-description: vitepress的markdown插件支持的语法，一直想找一个干净的系统架构和设计都足够干净都，一直没满意的，不满意就自己设计，一直想找一个干净的系统架构和设计都足够干净都，一直没满意的，不满意就自己设计
+  - Algorithms
 ---
-# 一直想找一个系统架构和设计都足够干净的系统
-## 前提
-理论上任何工具写出来的markdown(下文简称md)文件都能用，但是如果是按照以下方式写的话，可能表现力会丰富很多
 
-## 查看环境
+# Linked List
 
-假设你是mac？！
+_Read this in other languages:_
+[_简体中文_](README.zh-CN.md),
+[_Русский_](README.ru-RU.md),
+[_日本語_](README.ja-JP.md),
+[_Português_](README.pt-BR.md),
+[_한국어_](README.ko-KR.md),
+[_Español_](README.es-ES.md),
+[_Türkçe_](README.tr-TR.md),
+[_Українська_](README.uk-UA.md)
 
-* 安装 brew 这个可以装很多东西，正常是网上搜一句命令就装了
-```bash
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
-* 安装 node ，有brew的情况下， 就是 `brew info node` 一句话就行了
-```bash
-brew info node
-```
-* 安装 vitepress 本文重点 前两个都有都情况下 一句话就行了 `npm install -g vitepress`
- ```bash
-npm install -g vitepress
-```
+In computer science, a **linked list** is a linear collection
+of data elements, in which linear order is not given by
+their physical placement in memory. Instead, each
+element points to the next. It is a data structure
+consisting of a group of nodes which together represent
+a sequence. Under the simplest form, each node is
+composed of data and a reference (in other words,
+a link) to the next node in the sequence. This structure
+allows for efficient insertion or removal of elements
+from any position in the sequence during iteration.
+More complex variants add additional links, allowing
+efficient insertion or removal from arbitrary element
+references. A drawback of linked lists is that access
+time is linear (and difficult to pipeline). Faster
+access, such as random access, is not feasible. Arrays
+have better cache locality as compared to linked lists.
 
-到你的md目录执行 vitepress dev . 就能查看文档大致的样子
+*Made with [okso.app](https://okso.app)*
 
-## vitepress-markdown 特性vitepress-markdown 特性
+## Pseudocode for Basic Operations
 
-### 表格
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+### Insert
 
-### 提示
-
-```
-::: tip
-This is a tip
-:::
-
-::: warning
-This is a warning
-:::
-
-::: danger what??
-This is a dangerous warning
-:::
-```
-::: tip
-This is a tip
-:::
-
-::: warning
-This is a warning
-:::
-
-::: danger what??
-This is a dangerous warning
-:::
-
-### 代码高亮
-
-``` js
-export default {
-  name: 'MyComponent',
-  // ...
-}
+```text
+Add(value)
+  Pre: value is the value to add to the list
+  Post: value has been placed at the tail of the list
+  n ← node(value)
+  if head = ø
+    head ← n
+    tail ← n
+  else
+    tail.next ← n
+    tail ← n
+  end if
+end Add
 ```
 
-### emoji表情
-```markdown
-:tada: :100:
+```text
+Prepend(value)
+ Pre: value is the value to add to the list
+ Post: value has been placed at the head of the list
+ n ← node(value)
+ n.next ← head
+ head ← n
+ if tail = ø
+   tail ← n
+ end
+end Prepend
 ```
-:tada: :100:
 
+### Search
 
-## 规范与建议
+```text
+Contains(head, value)
+  Pre: head is the head node in the list
+       value is the value to search for
+  Post: the item is either in the linked list, true; otherwise false
+  n ← head
+  while n != ø and n.value != value
+    n ← n.next
+  end while
+  if n = ø
+    return false
+  end if
+  return true
+end Contains
+```
 
-便于效果一致，目前发现页面标题从 ## h2 开始使用可以获得最佳展示效果
+### Delete
 
-## 生产环境的文档
+```text
+Remove(head, value)
+  Pre: head is the head node in the list
+       value is the value to remove from the list
+  Post: value is removed from the list, true, otherwise false
+  if head = ø
+    return false
+  end if
+  n ← head
+  if n.value = value
+    if head = tail
+      head ← ø
+      tail ← ø
+    else
+      head ← head.next
+    end if
+    return true
+  end if
+  while n.next != ø and n.next.value != value
+    n ← n.next
+  end while
+  if n.next != ø
+    if n.next = tail
+      tail ← n
+      tail.next = null
+    else
+      n.next ← n.next.next
+    end if
+    return true
+  end if
+  return false
+end Remove
+```
 
-* 上线目前为手动上线 以后可能搞成自动
-* 本地全写完也是可以的
+### Traverse
 
-## 玩转侧边栏 以后再写吧
+```text
+Traverse(head)
+  Pre: head is the head node in the list
+  Post: the items in the list have been traversed
+  n ← head
+  while n != ø
+    yield n.value
+    n ← n.next
+  end while
+end Traverse
+```
 
+### Traverse in Reverse
+
+```text
+ReverseTraversal(head, tail)
+  Pre: head and tail belong to the same list
+  Post: the items in the list have been traversed in reverse order
+  if tail != ø
+    curr ← tail
+    while curr != head
+      prev ← head
+      while prev.next != curr
+        prev ← prev.next
+      end while
+      yield curr.value
+      curr ← prev
+    end while
+   yield curr.value
+  end if
+end ReverseTraversal
+```
+
+## Complexities
+
+### Time Complexity
+
+| Access    | Search    | Insertion | Deletion  |
+| :-------: | :-------: | :-------: | :-------: |
+| O(n)      | O(n)      | O(1)      | O(n)      |
+
+### Space Complexity
+
+O(n)
+
+## References
+
+- [Wikipedia](https://en.wikipedia.org/wiki/Linked_list)
+- [YouTube](https://www.youtube.com/watch?v=njTh_OwMljA&index=2&t=1s&list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8)

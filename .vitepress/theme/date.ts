@@ -26,7 +26,8 @@ export function convertDateV2(input: Date | string): string {
         }
 
         const timeComponents = parts[1].split(':').map((component) => component.padStart(2, '0'))
-        return `${datePart} ${timeComponents.join(':')}`
+        // return `${datePart} ${timeComponents.join(':')}`
+        return `${datePart}`
     }
 
     return ''

@@ -52,9 +52,11 @@ if (defaultDisplayTag) {
     font-size: 0.875rem;
     line-height: 25px;
     background-color: var(--vp-c-bg-alt);
+    /* background-color: rgb(171, 168, 168); */
     transition: 0.4s;
     border-radius: 2px;
     color: var(--vp-c-text-1);
+    /* color: black; */
     cursor: pointer;
 }
 
