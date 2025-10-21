@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './Components/Home';
 // import Blogs from './Components/Blogs';
 import { PostContextProvider} from './Contexts/PostProvider';
-import SingleBlog from './Components/SingleBlog';
+// import SingleBlog from './Components/SingleBlog';
 import Projects from './Components/Projects';
 
 
