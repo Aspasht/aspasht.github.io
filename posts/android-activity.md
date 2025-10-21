@@ -2,6 +2,7 @@
 title: Android Activity
 description: In-depth research on android activity.
 date: 2025-04-28
+category: android
 tags:
   - android
   - android-security
@@ -12,7 +13,7 @@ tags:
 ## Difinition
   An Activity is fundamental concept that provides a screen with which users can interact to do something, such as dial a phone number, or take a photo etc. It acts as the entry point for user interaction within an application. The only required attribute for activity element is ```android:name```  which specifies the class name of the activity.
 
-  ``` android:exported``` : This  This boolean attribute indicates whether the Activity can be launched by components from other application. 
+  ``` android:exported``` : This boolean attribute indicates whether the Activity can be launched by components from other application. 
 
   - If ```false```, only components within the same application or application with the same user ID can be launched. 
   - If ```true```, any app can access the activity and launch it by its exact class name. <br>
