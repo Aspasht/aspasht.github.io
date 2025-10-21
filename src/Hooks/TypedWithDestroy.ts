@@ -8,7 +8,7 @@ interface TypedWithDestroy extends Typed {
 export function typed(el: React.RefObject<any>, value: any, time: Number, onComplete?: () => void): TypedWithDestroy {
     const typedInstance = new Typed(el.current, {
         strings: [` ^1000 ${value}`],
-        typeSpeed: time,
+        typeSpeed:  Number(time),
         onComplete: function (self: TypedWithDestroy) {
             self.cursor.classList.add('invisible');
             if (onComplete) {

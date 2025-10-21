@@ -1,35 +1,27 @@
-import { defineConfig, UserConfig } from "vite";
+import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { createProxyMiddleware } from "http-proxy-middleware";
-import path from "path";
-import { ViteDevServer } from "vite";
-import { createServer } from "http";
-
-const SERVER_URL = "https://aspashtapi.onrender.com";
 
 export default defineConfig({
-  server: {
-    proxy: {
-      "/api": 'https://aspashtapi.onrender.com',
+  plugins: [
+    react(),
+    {
+      name: "vitepress-proxy",
+      configureServer(server) {
+        const proxy = createProxyMiddleware({
+          target: "http://127.0.0.1:5000",
+          changeOrigin: true,
+          ws: true,
+          logLevel: "silent",
+          // 🚫 don't rewrite anything, because VitePress expects /blog/
+        });
+
+        // ✅ use cast to any to fix TS + connect type mismatch
+        (server.middlewares as any).use("/blog", proxy);
+      },
     },
+  ],
+  server: {
+    port: 3000,
   },
-  plugins: [react()],
 });
-
-
-
-// export default defineConfig({
-//   plugins: [react()],
-//   server: {
-//     proxy: {
-//       '^/api/.*': {
-//         target: SERVER_URL,
-//         changeOrigin: false,
-//         rewrite: path => path.replace('/api', ''),
-//         headers: {
-//           'HOST': 'djangoapi-production-7681.up.railway.app'
-//         },
-//       }
-//     }
-//   }
-// });

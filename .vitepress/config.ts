@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { getPosts } from './theme/serverUtils'
+import path from "node:path";
 
 //每页的文章数量
 const pageSize = 10
@@ -8,7 +9,7 @@ const isProd = process.env.NODE_ENV === 'production'
 
 export default defineConfig({
     title: "Aspasht's blog",
-    base: '/blog/',
+    base: '/blog',
     cacheDir: './node_modules/vitepress_cache',
     description: 'vitepress,blog,blog-theme',
     ignoreDeadLinks: true,
@@ -48,6 +49,9 @@ export default defineConfig({
           ]
         : ['README.md'],
     vite: {
+        build: {
+        outDir: path.resolve(__dirname, '../dist/blog'), // 👈 output blog under React dist
+        },
         //build: { minify: false }
         server: { port: 5000 }
     }

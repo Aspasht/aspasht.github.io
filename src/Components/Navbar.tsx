@@ -30,7 +30,7 @@ const Navbar = () => {
         </div>
         <div className="flex px-3 gap-x-5">
           <div className="space-x-5 font-righteous font-extralight text-yellow-500">
-            <NavLink to="/blogs">Blog</NavLink>
+            <NavLink to="/blog">Blog</NavLink>
             <NavLink to="/projects">Projects</NavLink>
           </div>
           <div className="">
