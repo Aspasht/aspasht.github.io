@@ -1,12 +1,12 @@
-name: Deploy Blog to GitHub Pages
+name: Deploy
 
 on:
-  # Triggers the workflow on push events to the `main` branch
-  push:
-    branches: [main]
-  
+    push:
+        branches: [main ]
+
+
   # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+  workflow_dispatch:    
 
 # Sets the GITHUB_TOKEN permissions required for deployment
 permissions:
@@ -14,48 +14,20 @@ permissions:
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
-
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            -   uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'npm'
+            -   uses: oven-sh/setup-bun@v2
+            -   run: bun install
 
-      - name: Install dependencies
-        run: npm install
+            -   name: Build
+                run: bun run build
 
-      - name: Build Blog
-        run: npm run build
-        # The build output is placed in the default 'dist' directory.
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # Upload the generated folder (VitePress default output)
-          path: dist
-
-  # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+            -   name: Deploy
+                uses: peaceiris/actions-gh-pages@v4
+                with:
+                    github_token: ${{ secrets.GITHUB_TOKEN }}
+                    publish_dir: .vitepress/dist
