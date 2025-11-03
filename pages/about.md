@@ -52,6 +52,16 @@ I am a self-taught full-stack developer based in Nepal, equipped with over 4+ ye
   
 </p>
 <br>
+<h2 style="color: orange;">aspasht@aspasht-[~] <code style="color:lightgreen">projects</code></h2>
+
+  - https://github.com/aspasht
+
+<br>
+<h2 style="color: orange;">aspasht@aspasht-[~] <code style="color:lightgreen">resume</code></h2>
+
+  - https://rxresu.me/aspasht/aspasht-resume
+
+<br>
 <h2 style="color: orange;">aspasht@aspasht-[~] <code style="color:lightgreen">other stuffs i do</code></h2>
 
   - Bug Bounty Hunting 
